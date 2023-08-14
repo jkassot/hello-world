@@ -8,3 +8,4 @@ It now includes steps for Github
 
 A new line added
 Here is a new addition to this file
+This is a second new line
