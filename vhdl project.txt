@@ -1,0 +1,13 @@
+What do you think is the best practice when building a project with multiple vhdl sources in Vivado?
+Usually, we use a top.vhdl which "links" all the sources and includes the I/O ports.
+
+However, I found that creating a Block Design where we import the vhdl sources as blocks has some advantages:
+- We can easilly import board resources (from board definition)  and IP cores (from the IP repository) and link them to our  vhdl blocks.
+- We can easilly create ports to which we can later assign pins using the editor. 
+
+But, I see two broblems with this approach:
+- The vhdl blocks are not packaged IPs and thus are non-re-usable. Is there actually a way to package each vhdl source of a project as a seperate IP and add it to the USER repository?
+- The only way that I found to simulate each vhdl source with its own testbench was by disabling all other sources then test it  and then re-enabling the next source to test. That does not work smoothly with Vivado and sometimes the simulation refuses to switch to the new source or crashes. Is there another way to test a single vhdl source of a project?
+
+Do you think that would be best practice to build each vhdl source first as an individual project, test it and package it as an IP and at the end link all the developed IPs in a final new Project?
+
